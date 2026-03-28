@@ -1,114 +1,116 @@
-# Contributing to VietERP Platform / Huong dan Dong gop
+# Hướng dẫn Đóng góp / Contributing to VietERP Platform
+
+Cảm ơn bạn đã quan tâm đến VietERP! Tài liệu này sẽ giúp bạn bắt đầu đóng góp.
 
 Thank you for your interest in contributing to VietERP! This guide will help you get started.
 
-## Getting Started / Bat dau
+## Bắt đầu / Getting Started
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/vierp-platform.git`
-3. Create a feature branch: `git checkout -b feature/my-feature`
-4. Install dependencies: `npm install`
-5. Start infrastructure: `docker compose up -d`
+1. Fork kho mã nguồn / Fork the repository
+2. Clone về máy: `git clone https://github.com/YOUR-USERNAME/Viet-ERP.git`
+3. Tạo nhánh tính năng: `git checkout -b feature/tinh-nang-moi`
+4. Cài đặt thư viện: `npm install --legacy-peer-deps`
+5. Khởi động hạ tầng: `docker compose up -d`
 
-## Development Workflow / Quy trinh
+## Quy trình phát triển / Development Workflow
 
-### Branch Naming / Quy uoc dat ten nhanh
+### Quy ước đặt tên nhánh / Branch Naming
 
-- `feature/` — New features (e.g., `feature/crm-bulk-import`)
-- `fix/` — Bug fixes (e.g., `fix/invoice-calculation`)
-- `docs/` — Documentation changes
-- `refactor/` — Code refactoring
-- `test/` — Test additions or fixes
+- `feature/` — Tính năng mới (vd: `feature/crm-nhap-hang-loat`)
+- `fix/` — Sửa lỗi (vd: `fix/tinh-thue-sai`)
+- `docs/` — Thay đổi tài liệu
+- `refactor/` — Tái cấu trúc mã
+- `test/` — Bổ sung hoặc sửa kiểm thử
 
-### Commit Messages / Thong diep commit
+### Quy ước commit / Commit Messages
 
-We follow the Conventional Commits specification:
+Chúng tôi tuân theo quy ước Conventional Commits:
 
 ```
-<type>(<scope>): <description>
+<type>(<scope>): <mô tả>
 
-[optional body]
+[nội dung tuỳ chọn]
 ```
 
-Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `perf`, `ci`
+Loại (type): `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `perf`, `ci`
 
-Scopes: `hrm`, `crm`, `mrp`, `accounting`, `ecommerce`, `otb`, `tpm`, `pm`, `core`, `events`, `auth`, `branding`
+Phạm vi (scope): `hrm`, `crm`, `mrp`, `accounting`, `ecommerce`, `otb`, `tpm`, `pm`, `core`, `events`, `auth`, `branding`
 
-Examples:
+Ví dụ:
 ```
-feat(crm): add bulk customer import via CSV
-fix(accounting): correct TT200 tax calculation for Q4
-docs(branding): update white-label customization guide
-refactor(events): migrate DLQ to typed event schemas
+feat(crm): thêm nhập khách hàng hàng loạt qua CSV
+fix(accounting): sửa tính thuế TT200 cho quý 4
+docs(branding): cập nhật hướng dẫn cá nhân hoá thương hiệu
+refactor(events): chuyển DLQ sang typed event schemas
 ```
 
-### Pull Request Process / Quy trinh Pull Request
+### Quy trình Pull Request
 
-1. Ensure all tests pass: `npx turbo test`
-2. Ensure type checking passes: `npx turbo type-check`
-3. Ensure linting passes: `npx turbo lint`
-4. Update documentation if needed
-5. Create a pull request with a clear description
-6. Link any related issues
+1. Đảm bảo kiểm thử đạt: `npx turbo test`
+2. Đảm bảo kiểm tra kiểu đạt: `npx turbo typecheck`
+3. Đảm bảo lint đạt: `npx turbo lint`
+4. Cập nhật tài liệu nếu cần
+5. Tạo pull request với mô tả rõ ràng
+6. Liên kết các issue liên quan
 
-## Code Standards / Tieu chuan ma nguon
+## Tiêu chuẩn mã nguồn / Code Standards
 
 ### TypeScript
 
-- Use strict TypeScript — avoid `any` type
-- Export interfaces for public APIs
-- Use Prisma types for database models
-- Prefer `const` over `let`
+- Sử dụng TypeScript nghiêm ngặt — tránh kiểu `any`
+- Export interface cho các API công khai
+- Sử dụng kiểu Prisma cho database models
+- Ưu tiên `const` thay vì `let`
 
-### File Organization
+### Tổ chức tệp / File Organization
 
-- Collocate tests with source files (e.g., `utils.ts` + `utils.test.ts`)
-- Use barrel exports (`index.ts`) for packages
-- Follow Next.js App Router conventions for route files
+- Đặt tệp kiểm thử cạnh mã nguồn (vd: `utils.ts` + `utils.test.ts`)
+- Sử dụng barrel exports (`index.ts`) cho các packages
+- Tuân theo quy ước Next.js App Router cho route files
 
-### Styling
+### Giao diện / Styling
 
-- Use Tailwind CSS for all styling
-- Follow the design tokens in `packages/branding`
-- Support dark mode where applicable
+- Sử dụng Tailwind CSS cho toàn bộ giao diện
+- Tuân theo design tokens trong `packages/branding`
+- Hỗ trợ chế độ tối (dark mode) khi có thể
 
-### Internationalization
+### Đa ngôn ngữ / Internationalization
 
-- All user-facing strings must use the bilingual label system from `@vierp/branding`
-- Format: "Tieng Viet / English" for bilingual mode
-- Never hardcode UI text directly in components
+- Tất cả chuỗi hiển thị cho người dùng phải sử dụng hệ thống label song ngữ từ `@vierp/branding`
+- Định dạng: "Tiếng Việt / English" cho chế độ song ngữ
+- Không viết cứng văn bản UI trực tiếp trong component
 
-## Testing / Kiem thu
+## Kiểm thử / Testing
 
 ```bash
-# Unit tests
+# Kiểm thử đơn vị
 npx turbo test
 
-# E2E tests
+# Kiểm thử E2E
 npx turbo test:e2e
 
-# Test specific module
+# Kiểm thử module cụ thể
 npx turbo test --filter=CRM
 ```
 
-- Write tests for all new features
-- Maintain existing test coverage
-- E2E tests for critical user flows
+- Viết kiểm thử cho mọi tính năng mới
+- Duy trì độ phủ kiểm thử hiện tại
+- Kiểm thử E2E cho các luồng người dùng quan trọng
 
-## Reporting Issues / Bao cao loi
+## Báo cáo lỗi / Reporting Issues
 
-Use GitHub Issues with the provided templates:
-- **Bug Report**: For bugs and unexpected behavior
-- **Feature Request**: For new features and enhancements
+Sử dụng GitHub Issues với các mẫu được cung cấp:
+- **Báo cáo lỗi / Bug Report**: Cho các lỗi và hành vi bất thường
+- **Yêu cầu tính năng / Feature Request**: Cho tính năng mới và cải tiến
 
-Include: steps to reproduce, expected vs actual behavior, screenshots if applicable.
+Bao gồm: các bước tái tạo, hành vi mong đợi so với thực tế, ảnh chụp màn hình nếu có.
 
-## Code of Conduct / Quy tac ung xu
+## Quy tắc ứng xử / Code of Conduct
 
-This project follows a Code of Conduct. See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+Dự án này tuân theo Quy tắc ứng xử. Xem [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
-## Questions / Cau hoi
+## Câu hỏi / Questions
 
-If you have questions, please open a GitHub Discussion or create an issue.
+Nếu bạn có câu hỏi, vui lòng mở GitHub Discussion hoặc tạo issue.
 
-Thank you for contributing to VietERP Platform!
+Cảm ơn bạn đã đóng góp cho VietERP Platform!

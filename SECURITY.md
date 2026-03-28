@@ -1,66 +1,67 @@
-# Security Policy / Chinh sach Bao mat
+# Chính sách Bảo mật / Security Policy
 
-## Supported Versions / Phien ban duoc ho tro
+## Phiên bản được hỗ trợ / Supported Versions
 
-| Version | Supported |
+| Phiên bản / Version | Hỗ trợ / Supported |
 |---------|-----------|
-| 1.x     | Yes       |
-| < 1.0   | No        |
+| 1.x     | Có / Yes  |
+| < 1.0   | Không / No |
 
-## Reporting a Vulnerability / Bao cao lo hong
+## Báo cáo lỗ hổng / Reporting a Vulnerability
 
+**Vui lòng KHÔNG báo cáo lỗ hổng bảo mật qua GitHub Issues công khai.**
 **Please do NOT report security vulnerabilities through public GitHub issues.**
 
-If you discover a security vulnerability, please report it responsibly:
+Nếu bạn phát hiện lỗ hổng bảo mật, vui lòng báo cáo có trách nhiệm:
 
 1. Email: security@your-domain.com
-2. Include a detailed description of the vulnerability
-3. Steps to reproduce the issue
-4. Potential impact assessment
-5. Suggested fix (if any)
+2. Mô tả chi tiết lỗ hổng
+3. Các bước tái tạo vấn đề
+4. Đánh giá tác động tiềm ẩn
+5. Đề xuất cách sửa (nếu có)
 
-### What to Expect / Quy trinh xu ly
+### Quy trình xử lý / What to Expect
 
-- **Acknowledgment**: Within 48 hours of your report
-- **Assessment**: Within 7 days, we will assess severity and impact
-- **Fix**: Critical vulnerabilities will be patched within 14 days
-- **Disclosure**: We will coordinate responsible disclosure with you
+- **Xác nhận**: Trong vòng 48 giờ kể từ khi nhận báo cáo
+- **Đánh giá**: Trong vòng 7 ngày, chúng tôi sẽ đánh giá mức độ nghiêm trọng
+- **Sửa lỗi**: Lỗ hổng nghiêm trọng sẽ được vá trong vòng 14 ngày
+- **Công bố**: Chúng tôi sẽ phối hợp công bố có trách nhiệm với bạn
 
-### Severity Levels / Muc do nghiem trong
+### Mức độ nghiêm trọng / Severity Levels
 
-| Level | Description | Response Time |
+| Mức độ / Level | Mô tả / Description | Thời gian phản hồi / Response |
 |-------|-------------|---------------|
-| Critical | Remote code execution, data breach | 24 hours |
-| High | Authentication bypass, privilege escalation | 72 hours |
-| Medium | XSS, CSRF, information disclosure | 7 days |
-| Low | Minor issues, best practice violations | 30 days |
+| Nghiêm trọng / Critical | Thực thi mã từ xa, rò rỉ dữ liệu | 24 giờ |
+| Cao / High | Vượt quyền xác thực, leo thang đặc quyền | 72 giờ |
+| Trung bình / Medium | XSS, CSRF, lộ thông tin | 7 ngày |
+| Thấp / Low | Vấn đề nhỏ, vi phạm best practice | 30 ngày |
 
-## Security Measures / Bien phap Bao mat
+## Các biện pháp bảo mật / Security Measures
 
-VietERP Platform implements the following security measures:
+VietERP Platform triển khai các biện pháp bảo mật sau:
 
-- **Authentication**: Keycloak SSO with RBAC
-- **Database**: 100% Prisma ORM (zero raw SQL) — prevents SQL injection
-- **API Security**: Rate limiting, CORS, CSP headers, HSTS
-- **Secrets Management**: No hardcoded secrets; .env-based configuration
-- **Dependencies**: Regular dependency audits
-- **Input Validation**: Request validation middleware for all API routes
-- **Event Security**: Versioned events with idempotency keys
-- **Multi-tenant**: Tenant isolation at database and application level
+- **Xác thực**: Keycloak SSO với phân quyền RBAC
+- **Cơ sở dữ liệu**: 100% Prisma ORM (không có SQL thô) — chống SQL injection
+- **Bảo mật API**: Giới hạn tốc độ, CORS, CSP headers, HSTS
+- **Quản lý bí mật**: Không có bí mật viết cứng; cấu hình qua .env
+- **Phụ thuộc**: Kiểm tra phụ thuộc định kỳ
+- **Xác thực đầu vào**: Middleware xác thực request cho tất cả API routes
+- **Bảo mật sự kiện**: Sự kiện có phiên bản với khoá idempotency
+- **Đa tenant**: Cách ly tenant ở cấp cơ sở dữ liệu và ứng dụng
 
-## Best Practices for Deployers / Huong dan cho nguoi trien khai
+## Hướng dẫn cho người triển khai / Best Practices for Deployers
 
-1. Always use HTTPS in production
-2. Rotate API keys and secrets regularly
-3. Enable Keycloak brute-force detection
-4. Configure firewall rules for database access
-5. Enable audit logging
-6. Run `npm audit` regularly
-7. Keep all dependencies up to date
-8. Use the provided Docker images with non-root users
+1. Luôn sử dụng HTTPS trong production
+2. Xoay vòng API key và bí mật thường xuyên
+3. Bật tính năng chống brute-force của Keycloak
+4. Cấu hình firewall cho truy cập cơ sở dữ liệu
+5. Bật ghi log kiểm toán
+6. Chạy `npm audit` thường xuyên
+7. Cập nhật tất cả phụ thuộc
+8. Sử dụng Docker image với user không phải root
 
-## Hall of Fame / Vinh danh
+## Vinh danh / Hall of Fame
 
-We appreciate security researchers who help keep VietERP safe. Responsible disclosures will be acknowledged here.
+Chúng tôi trân trọng các nhà nghiên cứu bảo mật giúp VietERP an toàn hơn. Các báo cáo có trách nhiệm sẽ được ghi nhận tại đây.
 
-Thank you for helping keep VietERP Platform secure.
+Cảm ơn bạn đã giúp VietERP Platform an toàn.

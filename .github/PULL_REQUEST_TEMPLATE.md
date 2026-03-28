@@ -1,17 +1,17 @@
-## Summary / Tom tat
+## Tóm tắt / Summary
 
-Brief description of changes.
+Mô tả ngắn gọn về thay đổi. / Brief description of changes.
 
-## Type of Change / Loai thay doi
+## Loại thay đổi / Type of Change
 
-- [ ] Bug fix / Sua loi
-- [ ] New feature / Tinh nang moi
-- [ ] Breaking change / Thay doi khong tuong thich
-- [ ] Documentation / Tai lieu
-- [ ] Refactoring / Tai cau truc
-- [ ] Performance / Hieu nang
+- [ ] Sửa lỗi / Bug fix
+- [ ] Tính năng mới / New feature
+- [ ] Thay đổi không tương thích / Breaking change
+- [ ] Tài liệu / Documentation
+- [ ] Tái cấu trúc / Refactoring
+- [ ] Hiệu năng / Performance
 
-## Module(s) Affected / Module lien quan
+## Module liên quan / Module(s) Affected
 
 - [ ] HRM
 - [ ] CRM
@@ -25,21 +25,21 @@ Brief description of changes.
 - [ ] Core/Packages
 - [ ] Infrastructure
 
-## Checklist / Danh sach kiem tra
+## Danh sách kiểm tra / Checklist
 
-- [ ] Tests pass (`npx turbo test`)
-- [ ] Type check passes (`npx turbo type-check`)
-- [ ] Lint passes (`npx turbo lint`)
-- [ ] No hardcoded brand strings (use `@vierp/branding`)
-- [ ] All UI text uses bilingual labels from `@vierp/branding`
-- [ ] Documentation updated (if applicable)
-- [ ] No `.env` or secrets committed
+- [ ] Kiểm thử đạt / Tests pass (`npx turbo test`)
+- [ ] Kiểm tra kiểu đạt / Type check passes (`npx turbo typecheck`)
+- [ ] Lint đạt / Lint passes (`npx turbo lint`)
+- [ ] Không viết cứng chuỗi thương hiệu / No hardcoded brand strings (use `@vierp/branding`)
+- [ ] Văn bản UI sử dụng nhãn song ngữ / All UI text uses bilingual labels from `@vierp/branding`
+- [ ] Tài liệu đã cập nhật (nếu cần) / Documentation updated (if applicable)
+- [ ] Không commit `.env` hoặc bí mật / No `.env` or secrets committed
 
-## Screenshots / Anh chup (if UI changes)
+## Ảnh chụp / Screenshots (nếu thay đổi giao diện / if UI changes)
 
-Before | After
+Trước / Before | Sau / After
 --- | ---
 
-## Related Issues / Issues lien quan
+## Issues liên quan / Related Issues
 
 Closes #

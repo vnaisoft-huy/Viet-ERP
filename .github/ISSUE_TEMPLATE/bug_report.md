@@ -1,45 +1,45 @@
 ---
-name: Bug Report / Bao cao Loi
-about: Report a bug to help us improve / Bao cao loi de giup chung toi cai thien
-title: '[Bug] '
+name: Báo cáo Lỗi / Bug Report
+about: Báo cáo lỗi để giúp chúng tôi cải thiện / Report a bug to help us improve
+title: '[Lỗi/Bug] '
 labels: bug
 assignees: ''
 ---
 
-## Description / Mo ta
+## Mô tả / Description
 
-A clear and concise description of the bug.
+Mô tả rõ ràng và ngắn gọn về lỗi. / A clear and concise description of the bug.
 
-## Module / Module
+## Module
 
-Which module is affected? (HRM, CRM, MRP, Accounting, Ecommerce, OTB, TPM, PM, ExcelAI, Other)
+Module nào bị ảnh hưởng? / Which module is affected? (HRM, CRM, MRP, Accounting, Ecommerce, OTB, TPM, PM, ExcelAI, Khác/Other)
 
-## Steps to Reproduce / Cac buoc tai tao
+## Các bước tái tạo / Steps to Reproduce
 
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+1. Truy cập '...' / Go to '...'
+2. Nhấn vào '...' / Click on '...'
+3. Cuộn xuống '...' / Scroll down to '...'
+4. Thấy lỗi / See error
 
-## Expected Behavior / Ket qua mong doi
+## Kết quả mong đợi / Expected Behavior
 
-What you expected to happen.
+Điều bạn mong đợi sẽ xảy ra. / What you expected to happen.
 
-## Actual Behavior / Ket qua thuc te
+## Kết quả thực tế / Actual Behavior
 
-What actually happened.
+Điều thực tế đã xảy ra. / What actually happened.
 
-## Screenshots / Anh chup man hinh
+## Ảnh chụp màn hình / Screenshots
 
-If applicable, add screenshots.
+Nếu có, hãy đính kèm ảnh chụp màn hình. / If applicable, add screenshots.
 
-## Environment / Moi truong
+## Môi trường / Environment
 
-- OS: [e.g., Ubuntu 22.04]
-- Node.js version: [e.g., 20.x]
-- Browser: [e.g., Chrome 120]
-- VietERP version: [e.g., 1.0.0]
+- Hệ điều hành / OS: [vd: Ubuntu 22.04]
+- Phiên bản Node.js / Node.js version: [vd: 20.x]
+- Trình duyệt / Browser: [vd: Chrome 120]
+- Phiên bản VietERP / VietERP version: [vd: 1.0.0]
 
-## Additional Context / Thong tin them
+## Thông tin thêm / Additional Context
 
-Any other context about the problem.
+Bất kỳ thông tin nào khác về vấn đề. / Any other context about the problem.
