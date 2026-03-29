@@ -1,27 +1,34 @@
 {
-  "name": "@erp/notifications",
+  "name": "@vierp/notifications",
   "version": "1.0.0",
-  "private": true,
-  "description": "ERP Notification Service — Email, in-app, SMS, Zalo, Telegram",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": { ".": "./src/index.ts" },
+  "description": "Real-time notification system for VietERP with WebSocket support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "eslint src/",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "test": "jest"
   },
+  "keywords": [
+    "notifications",
+    "websocket",
+    "real-time",
+    "vierp"
+  ],
+  "author": "VietERP Team",
+  "license": "MIT",
   "dependencies": {
-    "@erp/shared": "*",
-    "@erp/events": "*",
-    "nodemailer": "^7.0.0"
+    "ws": "^8.14.2"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.0",
-    "typescript": "^5.4.0",
-    "vitest": "^1.6.0"
+    "@types/node": "^20.10.6",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "peerDependenciesOptional": {
+    "react": true
   }
 }

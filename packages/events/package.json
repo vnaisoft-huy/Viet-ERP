@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "nats": "^2.19.0",
+    "zod": "^3.22.0",
     "@erp/shared": "*"
   },
   "devDependencies": {
