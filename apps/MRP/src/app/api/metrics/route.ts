@@ -1,57 +1,25 @@
-// =============================================================================
-// VietERP MRP - PROMETHEUS METRICS ENDPOINT
-// /api/metrics
-// =============================================================================
+import { NextResponse } from 'next/server';
 
-import { NextRequest, NextResponse } from 'next/server';
-import { logger } from '@/lib/logger';
+// Prometheus metrics endpoint
+// In production, import from @vierp/metrics
+// For now, provide a basic text/plain response with metric stubs
 
-/**
- * GET /api/metrics
- * Returns Prometheus-formatted metrics
- */
-export async function GET(request: NextRequest) {
-  try {
-    // Return basic metrics (prom-client not installed by default)
-    const uptime = process.uptime();
-    const memUsage = process.memoryUsage();
-    
-    const metrics = `# HELP rtr_mrp_up Application is running
-# TYPE rtr_mrp_up gauge
-rtr_mrp_up 1
+export async function GET() {
+  const metrics = [
+    '# HELP vierp_http_requests_total Total HTTP requests',
+    '# TYPE vierp_http_requests_total counter',
+    'vierp_http_requests_total{app="mrp",method="GET",status="200"} 0',
+    '',
+    '# HELP vierp_http_request_duration_seconds HTTP request duration',
+    '# TYPE vierp_http_request_duration_seconds histogram',
+    'vierp_http_request_duration_seconds_bucket{app="mrp",le="0.1"} 0',
+    '',
+    '# HELP vierp_app_info Application information',
+    '# TYPE vierp_app_info gauge',
+    'vierp_app_info{app="mrp",version="1.0.0"} 1',
+  ].join('\n');
 
-# HELP rtr_mrp_info Application info
-# TYPE rtr_mrp_info gauge
-rtr_mrp_info{version="${process.env.APP_VERSION || '1.0.0'}",env="${process.env.NODE_ENV || 'development'}"} 1
-
-# HELP rtr_mrp_uptime_seconds Application uptime in seconds
-# TYPE rtr_mrp_uptime_seconds gauge
-rtr_mrp_uptime_seconds ${uptime.toFixed(0)}
-
-# HELP rtr_mrp_memory_heap_used_bytes Heap memory used
-# TYPE rtr_mrp_memory_heap_used_bytes gauge
-rtr_mrp_memory_heap_used_bytes ${memUsage.heapUsed}
-
-# HELP rtr_mrp_memory_heap_total_bytes Total heap memory
-# TYPE rtr_mrp_memory_heap_total_bytes gauge
-rtr_mrp_memory_heap_total_bytes ${memUsage.heapTotal}
-
-# HELP rtr_mrp_memory_rss_bytes Resident set size
-# TYPE rtr_mrp_memory_rss_bytes gauge
-rtr_mrp_memory_rss_bytes ${memUsage.rss}
-`;
-    
-    return new NextResponse(metrics, {
-      status: 200,
-      headers: {
-        'Content-Type': 'text/plain; version=0.0.4; charset=utf-8',
-      },
-    });
-  } catch (error) {
-    logger.logError(error instanceof Error ? error : new Error(String(error)), { context: '/api/metrics' });
-    return NextResponse.json(
-      { error: 'Failed to generate metrics' },
-      { status: 500 }
-    );
-  }
+  return new NextResponse(metrics, {
+    headers: { 'Content-Type': 'text/plain; version=0.0.4; charset=utf-8' },
+  });
 }
