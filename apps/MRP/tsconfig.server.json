@@ -8,5 +8,5 @@
     "moduleResolution": "node"
   },
   "include": ["server.ts", "src/lib/socket/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/__tests__/**", "**/*.test.ts", "**/*.spec.ts"]
 }
