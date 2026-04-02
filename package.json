@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky",
+    "prepare": "is-ci || husky",
     "setup": "node scripts/setup.js",
     "build": "turbo run build",
     "dev": "turbo run dev",
