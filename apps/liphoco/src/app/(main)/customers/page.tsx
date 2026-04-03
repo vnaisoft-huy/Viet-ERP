@@ -1,17 +1,19 @@
-import prisma from '@/lib/db';
-import PageHeader from '@/components/layout/page-header';
-import CustomersTable from '@/components/customers/customers-table';
-import Link from 'next/link';
-import { Plus } from 'lucide-react';
+import prisma from "@/lib/db";
+import PageHeader from "@/components/layout/page-header";
+import CustomersTable from "@/components/customers/customers-table";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function CustomersPage() {
   const customers = await prisma.customer.findMany({
     include: {
-      _count: { select: { quotations: true, costingHistory: true, contacts: true } },
+      _count: {
+        select: { quotations: true, costingHistories: true, contacts: true },
+      },
     },
-    orderBy: { code: 'asc' },
+    orderBy: { code: "asc" },
   });
 
   // Serialize data

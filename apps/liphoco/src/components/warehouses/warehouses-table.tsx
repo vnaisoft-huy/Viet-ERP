@@ -1,34 +1,42 @@
-'use client';
+"use client";
 
-import DataTable from '@/components/layout/data-table';
-import Badge from '@/components/ui/badge';
+import DataTable from "@/components/layout/data-table";
+import Badge from "@/components/ui/badge";
 
 interface WarehouseRow {
   id: string;
   code: string;
   name: string;
   warehouseType: string;
-  _count: { stockLedgers: number };
+  _count: { stockLedgerEntries: number };
 }
 
-export default function WarehousesTable({ warehouses }: { warehouses: WarehouseRow[] }) {
+export default function WarehousesTable({
+  warehouses,
+}: {
+  warehouses: WarehouseRow[];
+}) {
   const columns = [
     {
-      key: 'code',
-      label: 'Mã kho',
-      render: (row: WarehouseRow) => <span className="font-mono text-xs font-semibold">{row.code}</span>,
+      key: "code",
+      label: "Mã kho",
+      render: (row: WarehouseRow) => (
+        <span className="font-mono text-xs font-semibold">{row.code}</span>
+      ),
     },
-    { key: 'name', label: 'Tên kho' },
+    { key: "name", label: "Tên kho" },
     {
-      key: 'warehouseType',
-      label: 'Loại',
+      key: "warehouseType",
+      label: "Loại",
       render: (row: WarehouseRow) => <Badge status={row.warehouseType} />,
     },
     {
-      key: '_count',
-      label: 'Giao dịch',
-      className: 'text-right',
-      render: (row: WarehouseRow) => <span className="font-mono">{row._count?.stockLedgers || 0}</span>,
+      key: "_count",
+      label: "Giao dịch",
+      className: "text-right",
+      render: (row: WarehouseRow) => (
+        <span className="font-mono">{row._count?.stockLedgerEntries || 0}</span>
+      ),
     },
   ];
 

@@ -1,21 +1,21 @@
-import prisma from '@/lib/db';
-import PageHeader from '@/components/layout/page-header';
-import ItemsTable from '@/components/items/items-table';
-import Link from 'next/link';
-import { Plus } from 'lucide-react';
+import prisma from "@/lib/db";
+import PageHeader from "@/components/layout/page-header";
+import ItemsTable from "@/components/items/items-table";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function ItemsPage() {
   const [items, groups] = await Promise.all([
     prisma.item.findMany({
-      include: { group: true, uomRef: true },
-      orderBy: { itemCode: 'asc' },
+      include: { uomRef: true },
+      orderBy: { itemCode: "asc" },
     }),
     prisma.itemGroup.findMany({
       where: { isGroup: false },
       include: { _count: { select: { items: true } } },
-      orderBy: { name: 'asc' },
+      orderBy: { name: "asc" },
     }),
   ]);
 
@@ -24,7 +24,7 @@ export default async function ItemsPage() {
     id: i.id,
     itemCode: i.itemCode,
     itemName: i.itemName,
-    itemGroup: i.itemGroup,
+    itemGroup: i.itemGroupName,
     itemType: i.itemType,
     uomCode: i.uomCode,
     valuationRate: Number(i.valuationRate),

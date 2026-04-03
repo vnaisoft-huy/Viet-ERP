@@ -1,15 +1,23 @@
-import path from 'node:path';
-import { defineConfig } from 'prisma/config';
+// ============================================================
+// Prisma 7+ Configuration File
+// Replaces url in datasource block (breaking change in v7)
+// ============================================================
+
+import path from "node:path";
+import dotenv from "dotenv";
+import { defineConfig } from "prisma/config";
+
+// Load .env from multiple locations (monorepo friendly)
+dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 export default defineConfig({
   earlyAccess: true,
-  schema: path.join(__dirname, 'schema.prisma'),
+  schema: path.resolve(__dirname, "prisma/schema.prisma"),
+  datasource: {
+    url: process.env.DATABASE_URL!,
+  },
   migrate: {
-    adapter: async () => {
-      const { PrismaPg } = await import('@prisma/adapter-pg');
-      const { Pool } = await import('pg');
-      const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-      return new PrismaPg(pool);
-    },
+    schema: path.resolve(__dirname, "prisma/schema.prisma"),
   },
 });
